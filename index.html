@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messages for my Friends</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #fafafa; }
+        input { padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; font-size: 16px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        #messageBox { margin-top: 20px; font-size: 18px; font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+
+    <h2>Enter your name to see your message!</h2>
+    <input type="text" id="nameInput" placeholder="Type your name here...">
+    <button onclick="checkName()">Reveal Message</button>
+
+    <div id="messageBox"></div>
+
+    <script>
+        function checkName() {
+            // Get the name and make it lowercase so spelling/caps don't break it
+            let name = document.getElementById("nameInput").value.trim().toLowerCase();
+            let box = document.getElementById("messageBox");
+
+            if (name === "nex") {
+                box.innerText = "Hii nene! Thanks for being an awesome friend.";
+            } else if (name === "ashley) {
+                box.innerText = "Hi Ashley! Here is your message!";
+            } else if (name === "") {
+                box.innerText = "Please type a name first!";
+            } else {
+                box.innerText = "Sorry, there's no message for that name! Make sure the spelling is right :)";
+            }
+        }
+    </script>
+
+</body>
+</html>
