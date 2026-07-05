@@ -6,7 +6,7 @@
         body { font-family: sans-serif; text-align: center; padding: 50px; background: #fafafa; }
         input { padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; }
         button { padding: 10px 20px; font-size: 16px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        #messageBox { margin-top: 20px; font-size: 18px; font-weight: bold; color: #333; }
+        #messageBox { margin-top: 20px; font-size: 18px; font-weight: bold; color: #333; min-height: 40px; }
     </style>
 </head>
 <body>
@@ -19,17 +19,29 @@
 
     <script>
         function checkName() {
-            // Get the name and make it lowercase so spelling/caps don't break it
-            let name = document.getElementById("nameInput").value.trim().toLowerCase();
+            // 1. Get the text from the input box
+            let typedName = document.getElementById("nameInput").value;
+            
+            // 2. Clean it up (remove extra spaces and make it lowercase)
+            let cleanName = typedName.trim().toLowerCase();
+            
+            // 3. Get the message box element
             let box = document.getElementById("messageBox");
 
-            if (name === "nex") {
-                box.innerText = "Hii nene! Thanks for being an awesome friend.";
-            } else if (name === "ashley) {
-                box.innerText = "Hi Ashley! Here is your message!";
-            } else if (name === "") {
+            // 4. Check the names
+            if (cleanName === "") {
                 box.innerText = "Please type a name first!";
-            } else {
+            } 
+            else if (cleanName === "nex") {
+                box.innerText = "Hey nex! Thanks for being an awesome friend <3";
+            } 
+            else if (cleanName === "ashley") {
+                box.innerText = "Hi ashley! Thanks for always hanging out.";
+            } 
+            else if (cleanName === "leo") {
+                box.innerText = "What's up Leo! Here is your secret message";
+            } 
+            else {
                 box.innerText = "Sorry, there's no message for that name! Make sure the spelling is right :)";
             }
         }
